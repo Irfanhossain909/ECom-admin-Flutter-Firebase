@@ -7,9 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
+import 'pages/category_page.dart';
 import 'pages/dashboard_page.dart';
 import 'pages/launcher_page.dart';
 import 'pages/login_page.dart';
+import 'pages/new_product_page.dart';
+import 'pages/order_page.dart';
+import 'pages/view_product.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +47,10 @@ class MyApp extends StatelessWidget {
         LauncherPage.routeName : (context) => const LauncherPage(),
         LoginPage.routeName : (context) => const LoginPage(),
         DashboardPage.routeName : (context) => const DashboardPage(),
+        NewProductPage.routeName : (context) => const NewProductPage(),
+        CategoryPage.routeName : (context) => const CategoryPage(),
+        ViewProductPage.routeName : (context) => const ViewProductPage(),
+        OrderPage.routeName : (context) => const OrderPage(),
       },
     );
   }
