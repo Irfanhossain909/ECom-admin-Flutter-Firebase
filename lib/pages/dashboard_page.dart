@@ -3,26 +3,18 @@ import 'package:ecom_admin/main.dart';
 import 'package:ecom_admin/models/dashboard_model.dart';
 import 'package:ecom_admin/pages/login_page.dart';
 import 'package:ecom_admin/providers/auth_provider.dart';
+import 'package:ecom_admin/providers/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DashboardPage extends StatefulWidget {
+class DashboardPage extends StatelessWidget {
   static const String routeName = '/dashB';
 
   const DashboardPage({super.key});
 
   @override
-  State<DashboardPage> createState() => _LauncherPageState();
-}
-
-class _LauncherPageState extends State<DashboardPage> {
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    context.read<ProductProvider>().getAllCategory();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard'),
