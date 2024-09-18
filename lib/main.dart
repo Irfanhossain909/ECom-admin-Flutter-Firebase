@@ -4,6 +4,7 @@ import 'package:ecom_admin/providers/auth_provider.dart';
 import 'package:ecom_admin/providers/product_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/dashboard_page.dart';
@@ -30,12 +31,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      builder: EasyLoading.init(),//use EasyLoading to show loading screen.
       initialRoute: LauncherPage.routeName,
       routes: {
         LauncherPage.routeName : (context) => const LauncherPage(),
