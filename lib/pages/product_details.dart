@@ -62,7 +62,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     onSave: (value) {
                       context
                           .read<ProductProvider>()
-                          .updateSingleProductField(product.id!, 'name', value);
+                          .updateSingleProductField(product.id!, 'productName', value);
                       showMsg(context, 'Updated');
                     });
               },
