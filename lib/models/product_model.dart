@@ -53,5 +53,9 @@ class ProductModel{
       discountPercent: map['discountPercent'] ?? 0,
     );
   }
+  num get priceAfterDiscount{
+    if(discountPercent == 0) return price;
+    return price - ((price * discountPercent) / 100);
+  }
 
 }

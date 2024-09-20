@@ -17,8 +17,8 @@ class DashboardItemModel {
 }
 
 const dashboardItems = [
-  DashboardItemModel(title: 'New Product', iconData: Icons.card_giftcard, routeName: NewProductPage.routeName),
+  DashboardItemModel(title: 'Add Product', iconData: Icons.card_giftcard, routeName: NewProductPage.routeName),
   DashboardItemModel(title: 'Category', iconData: Icons.category, routeName: CategoryPage.routeName),
-  DashboardItemModel(title: 'Product List', iconData: Icons.list, routeName: ViewProductPage.routeName),
-  DashboardItemModel(title: 'Order List', iconData: Icons.work, routeName: OrderPage.routeName),
+  DashboardItemModel(title: 'View Product', iconData: Icons.list, routeName: ViewProductPage.routeName),
+  DashboardItemModel(title: 'Orders', iconData: Icons.work, routeName: OrderPage.routeName),
 ];

@@ -10,6 +10,8 @@ import 'package:flutter/foundation.dart';
 
 class ProductProvider with ChangeNotifier {
   List<CategoryModel> categoryList = [];
+  List<ProductModel> productList = [];
+
 
   Future<void> addNewCategory(String name){
     final model = CategoryModel(name);
@@ -27,6 +29,22 @@ class ProductProvider with ChangeNotifier {
       notifyListeners();
     });
   }
+
+  getAllProducts(){
+    DbHelper.getAllProducts().listen((snapshot){
+      productList = List.generate(snapshot.docs.length, (index) =>
+          ProductModel.fromMap(snapshot.docs[index].data()));
+      notifyListeners();
+    });
+  }
+  ProductModel getProductFromListById(String id){
+    return productList.firstWhere((product)=> product.id == id);//going to match both id by using this line,
+  }
+
+  Future<void> updateSingleProductField(String id, String field, dynamic value) {
+    return DbHelper.updateSingleProductField(id, field, value);
+  }
+
 
   Future<String> uploadImageRetSrorage(String localPath) async{
     final imageName = 'Image_${DateTime.now().millisecondsSinceEpoch}';// create image name on storage.

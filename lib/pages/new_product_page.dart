@@ -229,6 +229,7 @@ class _NewProductPageState extends State<NewProductPage> {
           price: num.parse(_priceController.text),// using num.parse to convert num type to String,
           stock: num.parse(_stockController.text),
           description: _descriptionController.text,
+          discountPercent: int.parse(_discountController.text),
           imageUrl: url,
         );
         await context.read<ProductProvider>().addNewProduct(product);

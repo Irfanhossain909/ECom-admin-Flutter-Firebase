@@ -9,10 +9,11 @@ class DashboardItemView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () =>Navigator.pushNamed(context, model.routeName),
+      onTap: () => Navigator.pushNamed(context, model.routeName),
       child: Card(
+        shadowColor: Colors.green,
+        surfaceTintColor: Colors.black,
         elevation: 14,
-        color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -21,14 +22,15 @@ class DashboardItemView extends StatelessWidget {
               Icon(
                 model.iconData,
                 color: Colors.green,
-                size: 60.0,
+                size: 70.0,
               ),
               const SizedBox(
                 height: 10.0,
               ),
               Text(
                 model.title,
-                style: const TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    fontSize: 22.0, fontWeight: FontWeight.bold,),
               ),
             ],
           ),
