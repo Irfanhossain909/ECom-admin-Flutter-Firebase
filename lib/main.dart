@@ -14,6 +14,7 @@ import 'pages/login_page.dart';
 import 'pages/new_product_page.dart';
 import 'pages/order_page.dart';
 import 'pages/product_details.dart';
+import 'pages/user_page.dart';
 import 'pages/view_product.dart';
 
 void main() async{
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         ViewProductPage.routeName : (context) => const ViewProductPage(),
         OrderPage.routeName : (context) => const OrderPage(),
         ProductDetailsPage.routeName : (context) => const ProductDetailsPage(),
+        UserListPage.routeName : (context) => const UserListPage(),
       },
     );
   }

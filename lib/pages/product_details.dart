@@ -33,25 +33,29 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         title: const Text('Details'),
       ),
       body: ListView(
+        padding: const EdgeInsets.all(10.0),
         children: [
-          CachedNetworkImage(
-            width: double.infinity,
-            height: 250.0,
-            fit: BoxFit.cover,
-            imageUrl: product.imageUrl,
-            placeholder: (context, url) => const Center(
-              child: CircularProgressIndicator(),
-            ),
-            errorWidget: (context, url, error) => const Center(
-              child: Icon(
-                Icons.error,
+          Card(
+            elevation: 10.0,
+            shadowColor: Colors.black,
+            child: CachedNetworkImage(
+              width: double.infinity,
+              height: 250.0,
+              fit: BoxFit.cover,
+              imageUrl: product.imageUrl,
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(),
               ),
+              errorWidget: (context, url, error) => const Center(
+                child: Icon(
+                  Icons.error,
+                ),
+              ),
+              fadeInDuration: const Duration(milliseconds: 1000),
+              fadeInCurve: Curves.bounceInOut,
             ),
-            fadeInDuration: const Duration(milliseconds: 1000),
-            fadeInCurve: Curves.bounceInOut,
           ),
-          //----------------------------------------------------
-          //--------------Product Name-------------------------
+          const SizedBox(height: 10.0,),
           ListTile(
             title: Text(product.productName),
             trailing: IconButton(
@@ -71,7 +75,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
               ),
             ),
           ),
-          //----------------------------------------------------------
           ListTile(
             title: Text('price: ${product.price}TK'),
             trailing: IconButton(
@@ -135,7 +138,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           ),
           SwitchListTile(
             value: product.available,
-            title: const Text('Stock Availability'),
+            title: const Text('Available'),
             onChanged: (value) {
               context
                   .read<ProductProvider>()
