@@ -1,6 +1,7 @@
 
 import 'package:ecom_admin/firebase_options.dart';
 import 'package:ecom_admin/providers/auth_provider.dart';
+import 'package:ecom_admin/providers/order_provider.dart';
 import 'package:ecom_admin/providers/product_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ void main() async{
       providers: [
         ChangeNotifierProvider(create: (context) => FirebaseAuthProvider()),
         ChangeNotifierProvider(create: (context) => ProductProvider()),
+        ChangeNotifierProvider(create: (context) => OrderProvider()),
       ],
       child: const MyApp()));
 }

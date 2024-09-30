@@ -180,20 +180,25 @@ class _NewProductPageState extends State<NewProductPage> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 4.0),
                 child: Consumer<ProductProvider>(
-                  builder: (context, provider, child) =>
-                      DropdownButtonFormField<CategoryModel>(
-                    hint: const Text('Select Category'),
-                    isExpanded: true,
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
+                  builder: (context, provider, child) => Card(
+                    child: DropdownButtonFormField<CategoryModel>(
+                      hint: const Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 2.0),
+                        child: Text('Select Category'),
+                      ),
+                      isExpanded: true,
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                      items: provider.categoryList
+                          .map((model) => DropdownMenuItem<CategoryModel>(
+                              value: model, child: Text(model.name)))
+                          .toList(),
+                      onChanged: (value) {
+                        categoryModel = value;
+                      },
                     ),
-                    items: provider.categoryList
-                        .map((model) => DropdownMenuItem<CategoryModel>(
-                            value: model, child: Text(model.name)))
-                        .toList(),
-                    onChanged: (value) {
-                      categoryModel = value;
-                    },
                   ),
                 ),
               ),
@@ -218,15 +223,17 @@ class _NewProductPageState extends State<NewProductPage> {
       showMsg(context, 'Image not selected');
       return;
     }
-    if (_formKey.currentState!.validate()) {// valodate all feild
+    if (_formKey.currentState!.validate()) {
+      // valodate all feild
       EasyLoading.show(status: 'Please Wait...');
-      try{
+      try {
         final url = await context.read<ProductProvider>().uploadImageRetSrorage(
             localImagePath!); //after upload image in storage and get url,
         final product = ProductModel(
           productName: _nameController.text,
           categoryModel: categoryModel!,
-          price: num.parse(_priceController.text),// using num.parse to convert num type to String,
+          price: num.parse(_priceController.text),
+          // using num.parse to convert num type to String,
           stock: num.parse(_stockController.text),
           description: _descriptionController.text,
           discountPercent: int.parse(_discountController.text),
@@ -236,14 +243,15 @@ class _NewProductPageState extends State<NewProductPage> {
         showMsg(context, 'Product Uploaded');
         _resetFields();
         EasyLoading.dismiss();
-      }catch(error){
+      } catch (error) {
         EasyLoading.dismiss();
         showMsg(context, error.toString());
       }
     }
   }
 
-  void _resetFields() {// to reset all the fields after uploaded the product.
+  void _resetFields() {
+    // to reset all the fields after uploaded the product.
     setState(() {
       _nameController.clear();
       _priceController.clear();
@@ -252,7 +260,6 @@ class _NewProductPageState extends State<NewProductPage> {
       _discountController.clear();
       categoryModel = null;
       localImagePath = null;
-
     });
   }
 }

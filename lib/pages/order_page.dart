@@ -1,8 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecom_admin/main.dart';
 import 'package:ecom_admin/pages/login_page.dart';
 import 'package:ecom_admin/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/order_provider.dart';
+import '../utils/constants.dart';
 
 class OrderPage extends StatefulWidget {
   static const String routeName = '/order';
@@ -23,15 +27,37 @@ class _LauncherPageState extends State<OrderPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Order List'),
-        actions: [
-          IconButton(
-            onPressed: (){},
-            icon: const Icon(Icons.logout),
-          ),
-        ],
       ),
-      body: const Center(
-        child: Text('Order'),
+      body: Consumer<OrderProvider>(builder: (context, provider, child) => provider.orderList.isEmpty ?
+      const Center(child: Text('No Order'),) :
+      ListView.builder(
+        itemCount: provider.orderList.length,
+        itemBuilder: (context, index){
+          final order = provider.orderList[index];
+          return ListTile(
+            title: Text(order.orderId!),
+            subtitle: Text(order.orderStatus),
+            trailing: Text('$currency${order.grandTotal}'),
+            leading: CircleAvatar(
+              child: CachedNetworkImage(
+                width: double.infinity,
+                fit: BoxFit.cover,
+                imageUrl: order.cartList.first.image,
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+                errorWidget: (context, url, error) => const Center(
+                  child: Icon(
+                    Icons.error,
+                  ),
+                ),
+                fadeInDuration: const Duration(milliseconds: 1000),
+                fadeInCurve: Curves.bounceInOut,
+              ),
+            ),
+          );
+        },
+      ),
       ),
     );
   }
