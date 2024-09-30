@@ -21,15 +21,39 @@ class DashboardPage extends StatelessWidget {
     context.read<FirebaseAuthProvider>().getAllUsers();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dashboard'),
+        title: const Row(
+          children: [
+            Text(
+              'Dash',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.blue,
+              ),
+            ),
+            Text(
+              'Board',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.orange,
+              ),
+            ),
+          ],
+        ),
         actions: [
-          IconButton(
+          TextButton(
             onPressed: () {
               context.read<FirebaseAuthProvider>().logout().then((_) {
                 Navigator.pushReplacementNamed(context, LoginPage.routeName);
               });
             },
-            icon: const Icon(Icons.logout),
+            child: const Text('Logout',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.red,
+                )),
           ),
         ],
       ),

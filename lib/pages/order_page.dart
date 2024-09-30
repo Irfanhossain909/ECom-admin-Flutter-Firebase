@@ -28,7 +28,26 @@ class _LauncherPageState extends State<OrderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Order List'),
+        title: const Row(
+          children: [
+            Text(
+              'Order',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.blue,
+              ),
+            ),
+            Text(
+              'List',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.orange,
+              ),
+            ),
+          ],
+        ),
       ),
       body: Consumer<OrderProvider>(
         builder: (context, provider, child) => provider.orderList.isEmpty

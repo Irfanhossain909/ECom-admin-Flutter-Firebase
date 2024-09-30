@@ -25,7 +25,26 @@ class _LauncherPageState extends State<ViewProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('View Product'),
+          title: const Row(
+            children: [
+              Text(
+                'Product',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                  color: Colors.blue,
+                ),
+              ),
+              Text(
+                'View',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                  color: Colors.orange,
+                ),
+              ),
+            ],
+          ),
           actions: [
             IconButton(
               onPressed: () {},
