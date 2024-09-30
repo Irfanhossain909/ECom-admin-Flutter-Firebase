@@ -31,7 +31,26 @@ class _NewProductPageState extends State<NewProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('New Product'),
+        title: const Row(
+          children: [
+            Text(
+              'Add',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.blue,
+              ),
+            ),
+            Text(
+              'Product',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.orange,
+              ),
+            ),
+          ],
+        ),
         actions: [
           IconButton(
             onPressed: _saveProduct,

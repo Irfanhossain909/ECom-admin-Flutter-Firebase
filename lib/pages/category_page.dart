@@ -26,13 +26,26 @@ class _LauncherPageState extends State<CategoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Category'),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.logout),
-            ),
-          ],
+          title: const Row(
+            children: [
+              Text(
+                'Cate',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                  color: Colors.blue,
+                ),
+              ),
+              Text(
+                'gory',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                  color: Colors.orange,
+                ),
+              ),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {

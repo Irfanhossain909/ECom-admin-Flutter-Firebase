@@ -34,7 +34,26 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Order Details'),
+        title: const Row(
+          children: [
+            Text(
+              'Order',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.blue,
+              ),
+            ),
+            Text(
+              'Details',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.orange,
+              ),
+            ),
+          ],
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(8.0),

@@ -30,7 +30,26 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Details'),
+        title: const Row(
+          children: [
+            Text(
+              'Product',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.blue,
+              ),
+            ),
+            Text(
+              'Details',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 26,
+                color: Colors.orange,
+              ),
+            ),
+          ],
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(10.0),
