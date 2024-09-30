@@ -12,6 +12,9 @@ class OrderProvider with ChangeNotifier {
   List<OrderModel> orderList = [];
 
 
+  OrderModel getOrderById(String oid) {
+    return orderList.firstWhere((order)=> order.orderId == oid);
+  }
   getOrderConstants() {
     DbHelper.getAllOrderConstants().listen((snapshot) {
       settingsModel = OrderSettingModel.fromMap(snapshot.data()!);

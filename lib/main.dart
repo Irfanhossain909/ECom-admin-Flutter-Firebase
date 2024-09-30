@@ -1,5 +1,6 @@
 
 import 'package:ecom_admin/firebase_options.dart';
+import 'package:ecom_admin/pages/order_details.dart';
 import 'package:ecom_admin/providers/auth_provider.dart';
 import 'package:ecom_admin/providers/order_provider.dart';
 import 'package:ecom_admin/providers/product_provider.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
         OrderPage.routeName : (context) => const OrderPage(),
         ProductDetailsPage.routeName : (context) => const ProductDetailsPage(),
         UserListPage.routeName : (context) => const UserListPage(),
+        OrderDetailsPage.routeName : (context) => const OrderDetailsPage(),
       },
     );
   }

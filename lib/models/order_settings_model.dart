@@ -10,7 +10,7 @@ class OrderSettingModel {
   });
 
   Map<String, dynamic> toMap() {
-    return {'delevaryCharge': delevaryCharge,
+    return {'deliveryCharge': delevaryCharge,
       'discount': discount,
       'vat': vat,
     };
@@ -18,7 +18,7 @@ class OrderSettingModel {
 
   factory OrderSettingModel.fromMap(Map<String, dynamic> map) {
     return OrderSettingModel(
-      delevaryCharge: map['delevaryCharge'] ?? 0,
+      delevaryCharge: map['deliveryCharge'] ?? 0,
       discount: map['discount'] ?? 0,
       vat: map['vat'] ?? 0,
     );
