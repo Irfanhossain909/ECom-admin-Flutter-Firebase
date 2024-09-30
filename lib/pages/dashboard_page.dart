@@ -18,6 +18,7 @@ class DashboardPage extends StatelessWidget {
     context.read<ProductProvider>().getAllCategory();
     context.read<ProductProvider>().getAllProducts();
     context.read<OrderProvider>().getAllOrders();
+    context.read<FirebaseAuthProvider>().getAllUsers();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard'),

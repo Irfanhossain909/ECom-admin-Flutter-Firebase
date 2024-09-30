@@ -50,6 +50,9 @@ class DbHelper {
   static Stream<QuerySnapshot<Map<String, dynamic>>> getAllProducts() =>
       _db.collection(_collectionProduct).snapshots();
 
+  static Stream<QuerySnapshot<Map<String, dynamic>>> getAllUsers() =>
+      _db.collection(_collectionUser).snapshots();
+
   static Stream<QuerySnapshot<Map<String, dynamic>>> getAllOrders() =>
       _db.collection(_collectionOrder).snapshots();
 
